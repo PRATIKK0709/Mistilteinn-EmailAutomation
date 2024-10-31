@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistilteinn | Email Automation Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>Mistilteinn</span>
+            </div>
+            <div class="nav-status" id="botStatusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Offline</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="metrics-cards">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Processed Emails</h3>
+                        <p id="emailCount">0</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-reply"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Responses Sent</h3>
+                        <p id="responseCount">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <button class="btn primary-btn" onclick="toggleBot()" id="botStatus">
+                    <i class="fas fa-play"></i>
+                    <span>Start Automation</span>
+                </button>
+                <div class="status-badge" id="statusMessage"></div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="config-section">
+                <div class="section-header">
+                    <h2>Email Configuration</h2>
+                    <p>Set up your email credentials to start automation</p>
+                </div>
+                
+                <div class="config-form">
+                    <div class="form-group">
+                        <label for="emailAddress">Email Address</label>
+                        <input type="email" id="emailAddress" placeholder="your.email@gmail.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appPassword">App Password</label>
+                        <div class="password-input">
+                            <input type="password" id="appPassword" placeholder="Enter your Gmail app password">
+                            <button class="toggle-password" type="button">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn save-btn" onclick="saveEmailConfig()">
+                        <i class="fas fa-save"></i>
+                        Save Configuration
+                    </button>
+                </div>
+            </section>
+
+            <section class="rules-section">
+                <div class="section-header">
+                    <h2>Automation Rules</h2>
+                    <p>Create and manage your email response rules</p>
+                </div>
+
+                <div class="rules-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="keywords">Keywords</label>
+                            <input type="text" id="keywords" placeholder="urgent, help, support">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Response Subject</label>
+                            <input type="text" id="subject" placeholder="Auto-reply: Your Request">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="response">Response Template</label>
+                        <textarea id="response" placeholder="Enter your automated response message..."></textarea>
+                    </div>
+
+                    <button class="btn add-rule-btn" onclick="addRule()">
+                        <i class="fas fa-plus"></i>
+                        Add New Rule
+                    </button>
+                </div>
+
+                <div class="rules-list" id="rulesList">
+                    <!-- Rules will be dynamically inserted here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
