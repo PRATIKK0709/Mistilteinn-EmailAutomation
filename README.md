@@ -1,7 +1,5 @@
 # Mistilteinn Email Automation
 
-![Mistilteinn Logo](https://mistilteinn.vercel.app) 
-
 ## Overview
 
 Mistilteinn Email Automation is our latest innovation in business productivity tools. As a company dedicated to creating exceptional software solutions across iOS, Android, macOS, and web platforms, we've developed this email automation tool to help businesses streamline their communication workflows with intelligence and efficiency.
